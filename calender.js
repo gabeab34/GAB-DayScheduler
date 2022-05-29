@@ -24,8 +24,16 @@ $(".saveBtn").on("click", (event) => {
 
   $(document).ready(() => {
     if (localStorage["9am"] !== null && localStorage["9am"] !== undefined) {
-      var nineAm = $("<p>" + localStorage["9am"] + "</p>");
-      $("#9AM").append(nineAm[0].innerText);
+      var nine = $("<p>" + localStorage["9am"] + "</p>");
+      $("#9AM").append(nine[0].innerText);
+    } else {
+      ("");
+    }
+  });
+  $(document).ready(() => {
+    if (localStorage["10am"] !== null && localStorage["10am"] !== undefined) {
+      var ten = $("<p>" + localStorage["10am"] + "</p>");
+      $("#10AM").append(ten[0].innerText);
     } else {
       ("");
     }
