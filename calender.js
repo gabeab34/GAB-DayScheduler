@@ -15,3 +15,18 @@ $.each(timeSlot, function (i, hour) {
     $(this).next().addClass("future");
   }
 });
+
+$(".saveBtn").on("click", (event) => {
+    var appointmentText =
+      event.target.parentElement.previousElementSibling.children[0].value;
+    localStorage.setItem(event.target.attributes[0].value, appointmentText);
+  });
+
+  $(document).ready(() => {
+    if (localStorage["9am"] !== null && localStorage["9am"] !== undefined) {
+      var nineAm = $("<p>" + localStorage["9am"] + "</p>");
+      $("#9AM").append(nineAm[0].innerText);
+    } else {
+      ("");
+    }
+  });
