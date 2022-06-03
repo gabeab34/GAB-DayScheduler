@@ -1,26 +1,26 @@
-
+// adds the current date to the top of the page
 var today = moment();
 $(".currentdate").append(today.format("dddd, MMMM Do"));
 
 var timeSlot = $(".hour");
-var now = parseInt(moment().format("H"));
-
+var currently = parseInt(moment().format("H"));
+// function that determines the current hour and colors the timeslots based on their relation to that by adding a class
 $.each(timeSlot, function (i, hour) {
-  var hourId = parseInt($(this).attr("id"));
-  if (hourId === now) {
+  var hour = parseInt($(this).attr("id"));
+  if (hour === currently) {
     $(this).next().addClass("present");
-  } else if (hourId < now) {
+  } else if (hour < currently) {
     $(this).next().addClass("past");
-  } else if (hourId > now) {
+  } else if (hour > currently) {
     $(this).next().addClass("future");
   }
 });
-
+// enables the save button (💾) to save text in the appointment area to local storage
 $(".saveBtn").on("click", (event) => {
     var appointmentText = event.target.parentElement.previousElementSibling.children[0].value;
     localStorage.setItem(event.target.attributes[0].value, appointmentText);
   });
-
+// writes the saved local storage text to the appointment area even if refreshed, one for each timeslot
   $(document).ready(() => {
     if (localStorage["9am"] !== null && localStorage["9am"] !== undefined) {
       var nine = $("<p>" + localStorage["9am"] + "</p>");
