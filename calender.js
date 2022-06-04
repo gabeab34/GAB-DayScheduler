@@ -15,7 +15,7 @@ $.each(timeSlot, function (i, hour) {
     $(this).next().addClass("future");
   }
 });
-// enables the save button (💾) to save text in the appointment area to local storage
+// enables the save button (💾) to save user written text on click in the appointment area to local storage
 $(".saveBtn").on("click", (event) => {
     var appointmentText = event.target.parentElement.previousElementSibling.children[0].value;
     localStorage.setItem(event.target.attributes[0].value, appointmentText);
