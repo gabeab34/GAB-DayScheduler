@@ -69,7 +69,7 @@ $(".floppybtn").on("click", (event) => {
     if (localStorage["1pm"] !== null && localStorage["1pm"] !== undefined) {
       var one = $("<p>" + localStorage["1pm"] + "</p>");
       $("#1PM").append(one[0].innerText);
-      if (localStorage["12pm"] !==null && localStorage["12pm"] !== undefined)
+      if (localStorage["1pm"] !==null && localStorage["1pm"] !== undefined)
         $(".jumbotron").append(" 1 PM Appointment Saved ✅ ")
         } else {
             ("");
